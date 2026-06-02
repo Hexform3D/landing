@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://custom.hexform3d.com/sitemap.xml
