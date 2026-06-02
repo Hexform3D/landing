@@ -32,3 +32,6 @@ This v5 package restores the original HexForm3D cube logo from the working basel
 - `assets/hexform3d-logo-white.png`
 
 The visible site uses the black logo on light headers and the white logo on dark footers. Accent colors are limited to the HexForm3D black/red/gray/white family; prior supplier logo-card green/pink styling has been removed.
+
+
+V6 update: balanced the licensed-designer cards so Thin Air 3D matches the visual scale of Flexi Factory and Cutie3D, while keeping the black/red/gray/white HexForm3D palette.
