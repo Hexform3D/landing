@@ -1,25 +1,21 @@
-# HexForm3D static GitHub Pages package
+# HexForm3D Static GitHub Site v3
 
-Upload the contents of this folder to your GitHub Pages repository. The `CNAME` file maps the site to `custom.hexform3d.com` once the Squarespace DNS CNAME points `custom` to your GitHub Pages domain.
+Upload the contents of this folder to the root of the GitHub Pages repository. Do not upload the ZIP file itself. Do not upload the outer folder only.
 
-## Ecommerce strategy
+The repository root should contain:
 
-Static pages are hosted here. Buttons for current-for-sale items route to the live Squarespace shop at `https://www.hexform3d.com` so cart, checkout, inventory, and orders remain in Squarespace.
+- index.html
+- 404.html
+- CNAME
+- .nojekyll
+- shop/
+- licensed/
+- originals/
+- custom/
+- cosplay/
+- suppliers/
+- gallery/
+- about/
+- contact/
 
-## Files
-
-- `index.html` — Home
-- `shop/` — Shop overview
-- `licensed/` — Licensed prints, including Flexi Factory, Thin Air 3D, and Cutie3D
-- `originals/` — HexForm originals
-- `custom/` — Custom print requests
-- `cosplay/` — Cosplay helmets and props
-- `suppliers/` — Designers, materials, and machines
-- `gallery/` — Gallery
-- `about/` — About
-- `contact/` — Contact and project request
-- `assets/site.css` and `assets/site.js` — Shared styles and behavior
-
-## Replace later
-
-Replace stock images with finished product photos when available. Update Squarespace shop URLs if products move to a new subdomain such as `shop.hexform3d.com`.
+This v3 package inlines CSS and JavaScript into every HTML file so pages still look correct if a user lands on a nested GitHub Pages 404 path. Internal links are root-relative for the custom domain custom.hexform3d.com. Current products, cart, and checkout remain on the live Squarespace shop at https://www.hexform3d.com/shop.
