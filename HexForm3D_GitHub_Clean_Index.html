@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HexForm3D | Custom 3D Printed Items, Cosplay & Collectibles</title>
+  <meta name="description" content="HexForm3D prints finished 3D printed items, licensed resales, original designs, custom projects, cosplay helmets, props, collectibles, and functional parts.">
+  <meta name="theme-color" content="#d81419">
+
+  <!-- GitHub Pages / Squarespace DNS alias setup:
+       This file is built for GitHub Pages and can be served from https://custom.hexform3d.com/
+       by adding a CNAME file with custom.hexform3d.com and pointing Squarespace DNS to GitHub Pages. -->
+  <link rel="canonical" href="https://custom.hexform3d.com/">
+  <meta property="og:title" content="HexForm3D | Custom 3D Printed Items">
+  <meta property="og:description" content="Licensed resales, HexForm originals, custom prints, cosplay helmets, props, collectibles, and functional 3D printed items.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://custom.hexform3d.com/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1741517669003-94a4cb80f793?auto=format&fit=crop&fm=jpg&q=85&w=1800">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    :root{
+      --red:#d81419;
+      --red-2:#ff3037;
+      --red-dark:#92080d;
+      --black:#050505;
+      --ink:#111111;
+      --charcoal:#121212;
+      --soft-black:#191919;
+      --white:#ffffff;
+      --cream:#f5f2ed;
+      --muted:#666666;
+      --line:rgba(255,255,255,.14);
+      --line-dark:rgba(0,0,0,.10);
+      --shadow:0 26px 90px rgba(0,0,0,.26);
+      --radius:24px;
+      --radius-sm:16px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:var(--cream);
+      color:var(--ink);
+      line-height:1.55;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(var(--max), calc(100% - 40px));margin-inline:auto}
+    .skip{position:absolute;left:-999px;top:12px;background:#fff;color:#000;padding:10px 14px;z-index:9999;border:2px solid #000}
+    .skip:focus{left:12px}
+
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.08)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:-.045em;font-size:25px;white-space:nowrap}
+    .brand-logo{width:46px;height:50px;object-fit:contain}
+    .brand b{color:var(--red)}
+    .nav-links{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:850;text-transform:uppercase;letter-spacing:.05em}
+    .nav-links a{position:relative;padding:8px 0;color:#151515}
+    .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:.22s ease}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+    .nav-actions{display:flex;align-items:center;gap:12px}
+    .menu-toggle{display:none;width:44px;height:44px;border:1px solid rgba(0,0,0,.2);background:#fff;border-radius:999px;font-weight:900;cursor:pointer}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:13px 18px;border-radius:999px;font-size:13px;font-weight:950;text-transform:uppercase;letter-spacing:.055em;cursor:pointer;transition:.22s ease;line-height:1}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,0,0,.20)}
+    .btn.red{background:var(--red);border-color:var(--red);color:#fff}
+    .btn.red:hover{background:var(--red-2);border-color:var(--red-2)}
+    .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.40)}
+    .btn.ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    .btn.light{background:#fff;color:#111;border-color:#fff}
+    .btn.outline{background:transparent;color:#111;border-color:rgba(0,0,0,.18)}
+
+    .hero{position:relative;overflow:hidden;background:#060606;color:#fff}
+    .hero::before{content:"";position:absolute;inset:0;background:
+      radial-gradient(circle at 78% 14%, rgba(216,20,25,.38), transparent 31%),
+      linear-gradient(90deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.86) 45%,rgba(0,0,0,.50) 100%),
+      repeating-linear-gradient(60deg,rgba(255,255,255,.055) 0 1px,transparent 1px 42px);z-index:1}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.56;filter:saturate(1.06) contrast(1.08)}
+    .hero-inner{position:relative;z-index:2;min-height:720px;display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center;padding:84px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:#fff;background:rgba(216,20,25,.16);border:1px solid rgba(216,20,25,.42);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.15em;margin-bottom:20px}
+    .eyebrow::before{content:"";width:8px;height:8px;border-radius:999px;background:var(--red);box-shadow:0 0 22px var(--red)}
+    h1{font-size:clamp(48px,7.5vw,96px);line-height:.9;letter-spacing:-.075em;margin:0 0 22px;font-weight:950}
+    h1 span{color:var(--red-2)}
+    .lede{font-size:clamp(18px,2vw,24px);color:rgba(255,255,255,.82);max-width:680px;margin:0 0 30px}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+    .hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.14);border-radius:20px;overflow:hidden;max-width:760px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px)}
+    .metric{padding:16px 18px;border-right:1px solid rgba(255,255,255,.12)}
+    .metric:last-child{border-right:0}
+    .metric strong{display:block;font-size:18px;color:#fff}
+    .metric span{font-size:13px;color:rgba(255,255,255,.66)}
+    .hero-panel{align-self:stretch;display:grid;align-items:end;min-height:440px;border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);overflow:hidden;background:rgba(255,255,255,.06);box-shadow:var(--shadow);position:relative}
+    .hero-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.05)}
+    .hero-panel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.85))}
+    .hero-card{position:relative;z-index:2;margin:22px;padding:18px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.58);backdrop-filter:blur(14px);border-radius:18px}
+    .hero-card strong{display:block;color:var(--red-2);text-transform:uppercase;letter-spacing:.16em;font-size:12px;margin-bottom:6px}
+    .hero-card p{margin:0;color:rgba(255,255,255,.78)}
+
+    section{padding:92px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}
+    .section-kicker{color:var(--red);font-weight:950;letter-spacing:.18em;text-transform:uppercase;font-size:12px;margin-bottom:12px}
+    .section-head h2{font-size:clamp(34px,5vw,62px);line-height:.96;letter-spacing:-.06em;margin:0}
+    .section-head p{max-width:560px;margin:0;color:#5a5a5a;font-size:17px}
+
+    .category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .category-card{position:relative;overflow:hidden;min-height:250px;background:#fff;border:1px solid var(--line-dark);border-radius:var(--radius-sm);padding:24px;cursor:pointer;transition:.24s ease}
+    .category-card:hover{transform:translateY(-5px);box-shadow:0 24px 55px rgba(0,0,0,.12)}
+    .category-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--red),var(--red-2));transform:scaleX(.22);transform-origin:left;transition:.24s ease}
+    .category-card:hover::before{transform:scaleX(1)}
+    .category-card .num{font-size:12px;font-weight:950;color:var(--red);letter-spacing:.16em;text-transform:uppercase}
+    .category-card h3{font-size:27px;margin:38px 0 10px;letter-spacing:-.045em}
+    .category-card p{margin:0;color:#565656}
+    .category-card .arrow{position:absolute;right:20px;bottom:18px;width:38px;height:38px;border-radius:999px;background:#111;color:#fff;display:grid;place-items:center;transition:.24s ease}
+    .category-card:hover .arrow{background:var(--red);transform:translateX(3px)}
+    .shop-band{margin-top:26px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;background:#0b0b0b;color:#fff;border-radius:var(--radius);padding:30px;overflow:hidden;position:relative}
+    .shop-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 86% 0%,rgba(216,20,25,.26),transparent 32%);pointer-events:none}
+    .shop-band > *{position:relative}
+    .shop-band h3{font-size:34px;letter-spacing:-.045em;margin:0 0 8px}
+    .shop-band p{color:rgba(255,255,255,.70);margin:0 0 18px;max-width:720px}
+    .pill-row{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.82)}
+    .shop-photo{height:250px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+    .shop-photo img{width:100%;height:100%;object-fit:cover}
+
+    .process{background:#0a0a0a;color:#fff;position:relative;overflow:hidden}
+    .process::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(216,20,25,.22),transparent 34%),repeating-linear-gradient(120deg,rgba(255,255,255,.045) 0 1px,transparent 1px 46px)}
+    .process .container{position:relative}
+    .process .section-head p{color:rgba(255,255,255,.68)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{min-height:230px;border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));padding:24px}
+    .step-num{width:42px;height:42px;border-radius:14px;background:var(--red);display:grid;place-items:center;font-weight:950;margin-bottom:20px;box-shadow:0 14px 30px rgba(216,20,25,.26)}
+    .step h3{font-size:23px;margin:0 0 8px;letter-spacing:-.025em}
+    .step p{margin:0;color:rgba(255,255,255,.68)}
+
+    .split{display:grid;grid-template-columns:.95fr 1.05fr;gap:42px;align-items:center}
+    .image-stack{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .image-tile{border-radius:var(--radius-sm);overflow:hidden;background:#111;box-shadow:0 18px 42px rgba(0,0,0,.16);border:1px solid rgba(0,0,0,.08)}
+    .image-tile.tall{grid-row:span 2;min-height:500px}
+    .image-tile img{width:100%;height:100%;object-fit:cover}
+    .supplier-card{background:#fff;border:1px solid var(--line-dark);border-radius:var(--radius);padding:32px;box-shadow:0 18px 55px rgba(0,0,0,.08)}
+    .supplier-card h2{font-size:clamp(34px,4.8vw,58px);line-height:.98;letter-spacing:-.06em;margin:0 0 14px}
+    .supplier-card p{color:#5a5a5a;margin:0 0 18px;font-size:17px}
+    .supplier-list{display:grid;gap:12px;margin-top:18px}
+    .supplier-item{display:flex;gap:14px;align-items:flex-start;background:#f8f6f2;border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:15px}
+    .supplier-item span{width:32px;height:32px;display:grid;place-items:center;background:var(--red);color:#fff;border-radius:11px;font-weight:950;flex:0 0 auto}
+    .supplier-item h3{font-size:16px;margin:0 0 2px}
+    .supplier-item p{margin:0;color:#666;font-size:14px}
+
+    .gallery{background:#fff}
+    .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+    .filter-btn{border:1px solid rgba(0,0,0,.15);background:#fff;border-radius:999px;padding:10px 14px;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:.18s ease}
+    .filter-btn.active,.filter-btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .gallery-card{border:1px solid var(--line-dark);border-radius:var(--radius-sm);overflow:hidden;background:#fff;cursor:pointer;transition:.22s ease}
+    .gallery-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(0,0,0,.12)}
+    .gallery-card img{height:250px;width:100%;object-fit:cover;background:#111}
+    .gallery-body{padding:18px}
+    .gallery-body h3{font-size:20px;margin:0 0 4px;letter-spacing:-.02em}
+    .gallery-body p{margin:0;color:#666}
+
+    .about{background:#070707;color:#fff;overflow:hidden;position:relative}
+    .about::after{content:"";position:absolute;right:-130px;bottom:-170px;width:430px;height:430px;border:64px solid rgba(216,20,25,.16);transform:rotate(45deg)}
+    .about-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    .about h2{font-size:clamp(36px,5vw,64px);line-height:.96;letter-spacing:-.06em;margin:0 0 16px}
+    .about p{color:rgba(255,255,255,.72);font-size:17px;margin:0 0 16px}
+    .about-note{border-left:4px solid var(--red);background:rgba(216,20,25,.10);padding:16px;color:rgba(255,255,255,.78);border-radius:0 14px 14px 0;font-size:14px}
+    .quote-card{background:#fff;color:#111;border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+    .quote-card h3{font-size:31px;letter-spacing:-.04em;margin:0 0 8px}
+    .quote-card p{color:#555;margin:0 0 14px}
+    label{display:block;margin:12px 0 6px;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.07em}
+    input,textarea,select{width:100%;border:1px solid #ddd;background:#fafafa;border-radius:12px;padding:12px 13px;color:#111}
+    textarea{min-height:110px;resize:vertical}
+    .form-note{font-size:12px;color:#777;margin-top:10px}
+
+    .footer{background:#050505;color:#fff;padding:32px 0;border-top:1px solid rgba(255,255,255,.1)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:-.03em}
+    .footer-brand img{width:36px;height:42px;object-fit:contain}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap;color:rgba(255,255,255,.70);font-size:14px}
+    .footer small{color:rgba(255,255,255,.55)}
+
+    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.86);padding:24px;z-index:2200}
+    .lightbox.open{display:flex}
+    .lightbox-content{max-width:980px;width:100%;display:grid;grid-template-columns:1.1fr .9fr;background:#fff;color:#111;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .lightbox-content img{width:100%;height:520px;object-fit:cover;background:#111}
+    .lightbox-text{padding:28px}
+    .lightbox-text h3{font-size:30px;letter-spacing:-.04em;margin:0 0 8px}
+    .lightbox-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border:0;border-radius:999px;background:#fff;color:#111;font-size:24px;cursor:pointer}
+    .reveal{opacity:0;transform:translateY(18px);transition:.6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media (max-width:980px){
+      .nav{height:70px}
+      .nav-links{position:absolute;top:70px;left:0;right:0;display:none;flex-direction:column;align-items:flex-start;background:#fff;padding:20px;border-bottom:1px solid rgba(0,0,0,.1);box-shadow:0 24px 40px rgba(0,0,0,.12)}
+      .nav-links.open{display:flex}
+      .menu-toggle{display:grid;place-items:center}
+      .nav-actions .desktop-cta{display:none}
+      .hero-inner,.split,.about-grid{grid-template-columns:1fr}
+      .hero-inner{min-height:auto;padding:58px 0}
+      .hero-panel{min-height:380px}
+      .hero-metrics,.category-grid,.steps,.gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .shop-band{grid-template-columns:1fr}
+      .image-tile.tall{min-height:360px}
+    }
+    @media (max-width:640px){
+      .container{width:min(100% - 28px, var(--max))}
+      section{padding:70px 0}
+      .brand{font-size:22px}
+      .brand-logo{width:40px;height:44px}
+      h1{font-size:clamp(44px,15vw,64px)}
+      .hero-metrics,.category-grid,.steps,.gallery-grid,.image-stack{grid-template-columns:1fr}
+      .metric{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+      .metric:last-child{border-bottom:0}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+      .shop-photo{height:210px}
+      .lightbox-content{grid-template-columns:1fr;max-height:90vh;overflow:auto}
+      .lightbox-content img{height:300px}
+      .footer-inner{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="HexForm3D home">
+      <img class="brand-logo" src="data:image/png;base64,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" alt="HexForm3D logo">
+      <span>HexForm<b>3D</b></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#suppliers">Suppliers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn outline desktop-cta" href="https://www.hexform3d.com/shop">Shop Prints</a>
+      <a class="btn red desktop-cta" href="#project">Start a Project</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="home">
+    <img class="hero-bg" src="https://images.unsplash.com/photo-1741517669003-94a4cb80f793?auto=format&fit=crop&fm=jpg&q=85&w=1800" alt="3D printer workshop with tools and filament">
+    <div class="container hero-inner">
+      <div class="reveal">
+        <div class="eyebrow">Custom 3D print studio</div>
+        <h1>Finished prints, <span>built to stand out.</span></h1>
+        <p class="lede">HexForm3D prints and sells finished items: licensed resales, HexForm originals, custom projects, functional parts, collectibles, cosplay helmets, and props.</p>
+        <div class="hero-buttons">
+          <a class="btn red" href="https://www.hexform3d.com/shop">Shop Prints</a>
+          <a class="btn ghost" href="#project">Start a Custom Project</a>
+          <a class="btn ghost" href="#gallery">View Gallery</a>
+        </div>
+        <div class="hero-metrics" aria-label="HexForm3D product categories">
+          <div class="metric"><strong>Licensed</strong><span>approved designer resales</span></div>
+          <div class="metric"><strong>Originals</strong><span>HexForm-built designs</span></div>
+          <div class="metric"><strong>Custom</strong><span>parts, signs, models</span></div>
+          <div class="metric"><strong>Cosplay</strong><span>helmets, props, builds</span></div>
+        </div>
+      </div>
+      <aside class="hero-panel reveal" aria-label="3D printing process preview">
+        <img src="https://images.unsplash.com/photo-1705475025559-ad8efdedc74f?auto=format&fit=crop&fm=jpg&q=85&w=1500" alt="Close-up of a 3D printer in a colorful workshop">
+        <div class="hero-card">
+          <strong>Built for real projects</strong>
+          <p>Single finished items, clean display pieces, small-batch prints, and practical parts with clear project guidance.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="shop" id="shop">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Shop categories</div>
+          <h2>Choose your starting point.</h2>
+        </div>
+        <p>Shop ready-to-buy items, ask about licensed prints, explore HexForm originals, or start a custom/cosplay project.</p>
+      </div>
+      <div class="category-grid reveal" id="categoryGrid">
+        <article class="category-card" data-title="Licensed resales" data-text="Commercially licensed designer prints produced as finished items by HexForm3D." data-pills="Commercial license,Designer prints,Collectibles,Gifts">
+          <span class="num">01</span><h3>Licensed</h3><p>Approved designer resales printed as finished pieces.</p><span class="arrow">→</span>
+        </article>
+        <article class="category-card" data-title="HexForm originals" data-text="In-house ideas, useful accessories, display pieces, organizers, and branded designs." data-pills="Original design,Display,Decor,Utility">
+          <span class="num">02</span><h3>Originals</h3><p>HexForm-designed items made for display, function, and fun.</p><span class="arrow">→</span>
+        </article>
+        <article class="category-card" data-title="Custom 3D printed items" data-text="Send a file, sketch, photo, or idea. HexForm3D can help review printability and next steps." data-pills="Replacement parts,Signs,Models,Small batches">
+          <span class="num">03</span><h3>Custom</h3><p>Parts, signs, models, prototypes, gifts, and practical fixes.</p><span class="arrow">→</span>
+        </article>
+        <article class="category-card" data-title="Cosplay helmets and props" data-text="Large-format cosplay prints, prop components, helmets, armor pieces, and convention-ready build support." data-pills="Helmets,Props,Armor pieces,Collectibles">
+          <span class="num">04</span><h3>Cosplay</h3><p>Helmets, props, armor pieces, and display-worthy builds.</p><span class="arrow">→</span>
+        </article>
+      </div>
+      <div class="shop-band reveal" aria-live="polite">
+        <div>
+          <h3 id="detailTitle">Custom 3D printed items.</h3>
+          <p id="detailText">From an existing 3D file to a rough idea, HexForm3D helps turn concepts into practical, polished printed pieces.</p>
+          <div class="pill-row" id="detailPills"><span class="pill">Prototype</span><span class="pill">Replace</span><span class="pill">Modify</span><span class="pill">Create</span></div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn red" href="https://www.hexform3d.com/shop">Open Squarespace Shop</a>
+            <a class="btn ghost" href="#project">Request Quote</a>
+          </div>
+        </div>
+        <div class="shop-photo"><img src="https://images.unsplash.com/photo-1642969164999-979483e21601?auto=format&fit=crop&fm=jpg&q=85&w=1500" alt="3D printer creating a bright yellow part"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><div class="section-kicker">How it works</div><h2 id="process-title">Simple path from idea to print.</h2></div>
+        <p>Keep the process clear: send the idea, review the details, approve the plan, then receive a finished 3D printed item.</p>
+      </div>
+      <div class="steps reveal">
+        <article class="step"><div class="step-num">1</div><h3>Send the idea</h3><p>Share a model file, photo, sketch, reference, dimensions, or the problem you want solved.</p></article>
+        <article class="step"><div class="step-num">2</div><h3>Review the plan</h3><p>HexForm3D checks printability, size, finish expectations, material needs, and practical project options.</p></article>
+        <article class="step"><div class="step-num">3</div><h3>Print and finish</h3><p>Pieces are printed, checked, cleaned up, and prepared for pickup, delivery, or shipment.</p></article>
+        <article class="step"><div class="step-num">4</div><h3>Use or display it</h3><p>Functional parts, collectibles, cosplay components, gifts, and display pieces ready for real use.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="suppliers" class="suppliers">
+    <div class="container split">
+      <div class="supplier-card reveal">
+        <div class="section-kicker">Suppliers & licensing</div>
+        <h2>Curated designs. Practical print choices.</h2>
+        <p>HexForm3D combines approved designer/supplier sources with in-house design work and project guidance. The focus is on finished printed items, not selling printers.</p>
+        <div class="supplier-list">
+          <div class="supplier-item"><span>D</span><div><h3>Designer sources</h3><p>Commercially licensed files and curated creator relationships where applicable.</p></div></div>
+          <div class="supplier-item"><span>M</span><div><h3>Material match</h3><p>Material choices guided by the item’s display, fit, function, and durability needs.</p></div></div>
+          <div class="supplier-item"><span>Q</span><div><h3>Quality review</h3><p>Finished items are checked for the intended use before handoff.</p></div></div>
+        </div>
+      </div>
+      <div class="image-stack reveal" aria-label="Workshop and print examples">
+        <div class="image-tile tall"><img src="https://images.unsplash.com/photo-1702863361902-93c51bfbd923?auto=format&fit=crop&fm=jpg&q=85&w=1500" alt="3D printed rocket and display objects inside a printer"></div>
+        <div class="image-tile"><img src="https://images.unsplash.com/photo-1638959492386-f9a68d55c374?auto=format&fit=crop&fm=jpg&q=85&w=1500" alt="Close-up of printer nozzle creating a red part"></div>
+        <div class="image-tile"><img src="https://images.unsplash.com/photo-1705475025559-ad8efdedc74f?auto=format&fit=crop&fm=jpg&q=85&w=1500" alt="3D printer close-up with colorful workshop lighting"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><div class="section-kicker">Gallery</div><h2>Clean examples of what can be made.</h2></div>
+        <p>These clear preview images are stock placeholders for now. Replace them with HexForm3D product photos as inventory and project photography grows.</p>
+      </div>
+      <div class="filters reveal" role="group" aria-label="Filter gallery">
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        <button class="filter-btn" type="button" data-filter="custom">Custom</button>
+        <button class="filter-btn" type="button" data-filter="functional">Functional</button>
+        <button class="filter-btn" type="button" data-filter="cosplay">Cosplay</button>
+      </div>
+      <div class="gallery-grid reveal" id="galleryGrid">
+        <article class="gallery-card" data-type="custom" data-title="Custom print workflow" data-desc="Clear project intake, printability review, and practical guidance from idea to finished item.">
+          <img src="https://images.unsplash.com/photo-1741517669003-94a4cb80f793?auto=format&fit=crop&fm=jpg&q=85&w=1800" alt="3D printing workshop setup">
+          <div class="gallery-body"><h3>Custom workflow</h3><p>Ideas, files, sketches, and practical print planning.</p></div>
+        </article>
+        <article class="gallery-card" data-type="functional" data-title="Functional small parts" data-desc="Replacement pieces, fixtures, organizers, brackets, and useful printed components.">
+          <img src="https://images.unsplash.com/photo-1642969164999-979483e21601?auto=format&fit=crop&fm=jpg&q=85&w=1500" alt="3D printer producing a yellow part">
+          <div class="gallery-body"><h3>Functional parts</h3><p>Practical prints for repairs, displays, and small batches.</p></div>
+        </article>
+        <article class="gallery-card" data-type="cosplay" data-title="Cosplay and display builds" data-desc="Helmets, props, armor components, and display pieces for collectors and convention builds.">
+          <img src="https://images.unsplash.com/photo-1702863361902-93c51bfbd923?auto=format&fit=crop&fm=jpg&q=85&w=1500" alt="3D printed display objects inside a printer">
+          <div class="gallery-body"><h3>Cosplay & display</h3><p>Helmets, props, collectibles, and large-format builds.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="reveal">
+        <div class="section-kicker">About HexForm3D</div>
+        <h2>Creative prints without the tech confusion.</h2>
+        <p>HexForm3D is a 3D printing LLC focused on finished printed items: licensed resales, original designs, custom projects, cosplay work, collectibles, and useful parts.</p>
+        <p>The brand is built for people who want a finished item, not a printer. Bring the idea, file, or reference. HexForm3D helps make the project clearer and more practical.</p>
+        <div class="about-note">This GitHub-hosted landing page is designed to work alongside the Squarespace 7.1 shop. Product purchasing and checkout should stay on Squarespace; this page routes customers there with shop CTAs.</div>
+      </div>
+      <form class="quote-card reveal" id="project" autocomplete="on">
+        <h3>Start a project</h3>
+        <p>Use this static form to open an email draft. Replace the contact email in the script before publishing.</p>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com">
+        <label for="type">Project type</label>
+        <select id="type" name="type">
+          <option>Custom print</option>
+          <option>Licensed item question</option>
+          <option>HexForm original</option>
+          <option>Cosplay helmet or prop</option>
+          <option>Functional replacement part</option>
+        </select>
+        <label for="details">Project details</label>
+        <textarea id="details" name="details" placeholder="Tell us what you want printed, approximate size, intended use, timeline, and whether you already have a 3D file."></textarea>
+        <button class="btn red" type="submit" style="margin-top:14px;width:100%">Open Email Draft</button>
+        <div class="form-note">Static GitHub Pages cannot process forms without an external service. This button uses mailto instead.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand"><img src="data:image/png;base64,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" alt="HexForm3D logo"><span>HexForm<b style="color:var(--red-2)">3D</b></span></div>
+      <small>© <span id="year"></span> HexForm3D, LLC. Finished 3D printed items, custom projects, cosplay, collectibles, and functional prints.</small>
+    </div>
+    <div class="footer-links" aria-label="Footer navigation">
+      <a href="#home">Home</a>
+      <a href="https://www.hexform3d.com/shop">Shop</a>
+      <a href="#suppliers">Suppliers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Gallery preview">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close preview">×</button>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-text">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+      <div style="margin-top:20px"><a class="btn red" href="#project">Start a Similar Project</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Replace this before publishing if you want the project form to open the correct email draft.
+  const CONTACT_EMAIL = 'REPLACE-WITH-YOUR-EMAIL@hexform3d.com';
+
+  const navLinks = document.getElementById('navLinks');
+  const menuToggle = document.getElementById('menuToggle');
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  }));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const detailTitle = document.getElementById('detailTitle');
+  const detailText = document.getElementById('detailText');
+  const detailPills = document.getElementById('detailPills');
+  document.querySelectorAll('.category-card').forEach(card => {
+    card.addEventListener('click', () => {
+      detailTitle.textContent = card.dataset.title;
+      detailText.textContent = card.dataset.text;
+      detailPills.innerHTML = card.dataset.pills.split(',').map(item => `<span class="pill">${item.trim()}</span>`).join('');
+    });
+  });
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const galleryCards = document.querySelectorAll('.gallery-card');
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      const filter = button.dataset.filter;
+      galleryCards.forEach(card => {
+        card.style.display = filter === 'all' || card.dataset.type === filter ? '' : 'none';
+      });
+    });
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxDesc = document.getElementById('lightboxDesc');
+  const lightboxClose = document.getElementById('lightboxClose');
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImg.src = '';
+  }
+  galleryCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxTitle.textContent = card.dataset.title;
+      lightboxDesc.textContent = card.dataset.desc;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', event => { if(event.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', event => { if(event.key === 'Escape') closeLightbox(); });
+
+  document.getElementById('project').addEventListener('submit', event => {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const type = document.getElementById('type').value;
+    const details = document.getElementById('details').value.trim();
+    const subject = encodeURIComponent(`HexForm3D project request: ${type}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nProject type: ${type}\n\nDetails:\n${details}`);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  });
+</script>
+</body>
+</html>
